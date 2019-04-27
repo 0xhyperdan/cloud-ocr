@@ -39,7 +39,7 @@ func identity(w http.ResponseWriter, r *http.Request) {
 		} else if err := json.NewDecoder(resp.Body).Decode(&res); err != nil {
 			ResponseData{Code: 500, Msg: err.Error()}.response(w)
 		} else if res.success() {
-			ResponseData{0, "success", res}.response(w)
+			ResponseData{0, "success", res.Response}.response(w)
 		} else {
 			ResponseData{Code: 10002, Msg: res.Response.Error.Message}.response(w)
 		}

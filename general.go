@@ -42,7 +42,7 @@ func general(w http.ResponseWriter, r *http.Request) {
 		} else if res.error() {
 			ResponseData{Code: 10002, Msg: res.Response.Error.Message}.response(w)
 		} else {
-			ResponseData{Code: 0, Msg: "success", Data: res}.response(w)
+			ResponseData{Code: 0, Msg: "success", Data: res.Response}.response(w)
 		}
 	} else {
 		msg := fmt.Sprintf("不支持 %s 方式请求，请使用 %s", r.Method, http.MethodPost)
