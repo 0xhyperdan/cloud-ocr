@@ -10,17 +10,17 @@ var generalMethod = OcrMethodData{"GeneralFastOCR", "2018-11-19"}
 
 type GeneralData struct {
 	Response struct {
-		Language       string
-		RequestId      string
+		Language       string `json:"language"`
+		RequestId      string `json:"requestId"`
 		TextDetections []struct {
-			DetectedText string // 识别出的文本行内容
-			Confidence   int    // 置信度 0 ~100
+			DetectedText string `json:"detectedText"` // 识别出的文本行内容
+			Confidence   int    `json:"confidence"`   // 置信度 0 ~100
 			Polygon      []struct {
-				X int
-				Y int
-			}                   // 文本行坐标，以四个顶点坐标表示 注意：此字段可能返回 null，表示取不到有效值。
-			AdvancedInfo string //此字段为扩展字段。 GeneralBasicOcr接口返回段落信息Parag，包含ParagNo。
-		}
+				X int `json:"x"`
+				Y int `json:"y"`
+			} `json:"polygon"`                        // 文本行坐标，以四个顶点坐标表示 注意：此字段可能返回 null，表示取不到有效值。
+			AdvancedInfo string `json:"advancedInfo"` //此字段为扩展字段。 GeneralBasicOcr接口返回段落信息Parag ，包含ParagNo。
+		} `json:"textDetections"`
 		Error struct {
 			Code    string
 			Message string

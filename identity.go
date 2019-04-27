@@ -8,16 +8,16 @@ import (
 
 type IdentityData struct {
 	Response struct {
-		RequestId    string // 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
-		Name         string // 证件姓名
-		Sex          string // 性别
-		Nation       string // 民族
-		Birth        string // 出生日期
-		Address      string // 地址
-		IdNum        string // 身份证号
-		ValidDate    string // 证件的有效期
-		Authority    string // 发证机关
-		AdvancedInfo string // 扩展信息，根据请求的可选字段返回对应内容，不请求则不返回。目前支持的扩展字段为： IdCard身份证照片，请求CropIdCard时返回； Portrait人像照片，请求CropPortrait时返回； WarnInfos告警信息（Code告警码，Msg告警信息），识别出翻拍件或复印件时返回。
+		RequestId    string `json:"requestId"`    // 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+		Name         string `json:"name"`         // 证件姓名
+		Sex          string `json:"sex"`          // 性别
+		Nation       string `json:"nation"`       // 民族
+		Birth        string `json:"birth"`        // 出生日期
+		Address      string `json:"address"`      // 地址
+		IdNum        string `json:"idNum"`        // 身份证号
+		ValidDate    string `json:"validDate"`    // 证件的有效期
+		Authority    string `json:"authority"`    // 发证机关
+		AdvancedInfo string `json:"advancedInfo"` // 扩展信息，根据请求的可选字段返回对应内容，不请求则不返回。目前支持的扩展字段为： IdCard身份证照片，请求CropIdCard时返回； Portrait人像照片，请求CropPortrait时返回； WarnInfos告警信息（Code告警码，Msg告警信息），识别出翻拍件或复印件时返回。
 		Error        struct {
 			Code    string
 			Message string

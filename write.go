@@ -12,21 +12,21 @@ type WriteData struct {
 	Code    int
 	Message string
 	Data    struct {
-		SessionId string
+		SessionId string `json:"sessionId"`
 		Items     [] struct {
-			ItemString string
+			ItemString string `json:"itemString"`
 			ItemCoord  struct {
-				X      int
-				Y      int
-				Width  int
-				Height int
+				X      int `json:"x"`
+				Y      int `json:"y"`
+				Width  int `json:"width"`
+				Height int `json:"height"`
 			}
-			ItemConf float64
+			ItemConf float64 `json:"itemConf"`
 			Words    []struct {
-				Character  string
-				Confidence float64
-			}
-		}
+				Character  string  `json:"character"`
+				Confidence float64 `json:"confidence"`
+			} `json:"words"`
+		} `json:"items"`
 	}
 }
 
