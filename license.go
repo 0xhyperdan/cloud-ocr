@@ -43,8 +43,6 @@ type LicenseResultData struct {
 func (licenseData LicenseData) toResultData() LicenseResultData {
 	var licenseResultData LicenseResultData
 	for _, v := range licenseData.Data.Items {
-		fmt.Printf("item => %v\n", v.Item)
-		fmt.Printf("item_value => %v\n", v.ItemString)
 		switch v.Item {
 		case "注册号":
 			licenseResultData.RegisterId = v.ItemString

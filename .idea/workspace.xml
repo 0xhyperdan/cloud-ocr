@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb1269bb-36b2-40e7-bcfc-fd50d4541dd8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/APIDOC.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compose.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/consignee.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/purchase.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bank.go" beforeDir="false" afterPath="$PROJECT_DIR$/bank.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/invoice.go" beforeDir="false" afterPath="$PROJECT_DIR$/invoice.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,11 +12,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="88">
               <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/purchase.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="416">
+              <caret line="52" column="32" lean-forward="true" selection-start-line="52" selection-start-column="32" selection-end-line="52" selection-end-column="32" />
+              <folding>
+                <element signature="e#14#71#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/license.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="502">
+              <caret line="61" column="5" lean-forward="true" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -68,7 +80,6 @@
         <option value="$PROJECT_DIR$/identity.go" />
         <option value="$PROJECT_DIR$/general.go" />
         <option value="$PROJECT_DIR$/write.go" />
-        <option value="$PROJECT_DIR$/config.json" />
         <option value="$PROJECT_DIR$/common.go" />
         <option value="$PROJECT_DIR$/common.go" />
         <option value="$PROJECT_DIR$/README.md" />
@@ -79,6 +90,7 @@
         <option value="$PROJECT_DIR$/purchase.go" />
         <option value="$PROJECT_DIR$/compose.go" />
         <option value="$PROJECT_DIR$/APIDOC.md" />
+        <option value="$PROJECT_DIR$/config.json" />
       </list>
     </option>
   </component>
@@ -195,6 +207,7 @@
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19488817" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32930845" />
       <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32930845" />
@@ -278,13 +291,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/license.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="39" column="59" selection-start-line="39" selection-start-column="55" selection-end-line="39" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/general.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -320,16 +326,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="79" column="33" lean-forward="true" selection-start-line="79" selection-start-column="33" selection-end-line="79" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/purchase.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="79" column="27" selection-start-line="79" selection-start-column="19" selection-end-line="79" selection-end-column="27" />
-          <folding>
-            <element signature="e#14#71#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -371,6 +367,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
           <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/purchase.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="52" column="32" lean-forward="true" selection-start-line="52" selection-start-column="32" selection-end-line="52" selection-end-column="32" />
+          <folding>
+            <element signature="e#14#71#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/license.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="502">
+          <caret line="61" column="5" lean-forward="true" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
         </state>
       </provider>
     </entry>
