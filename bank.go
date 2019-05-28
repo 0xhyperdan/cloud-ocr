@@ -28,7 +28,7 @@ type BankData struct {
 }
 
 func (bankData BankData) success() bool {
-	return bankData.Code == 1
+	return bankData.Code == 0
 }
 
 type BankResultData struct {

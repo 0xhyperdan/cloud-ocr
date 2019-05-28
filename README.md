@@ -18,6 +18,12 @@
  
 6. 银行卡识别 `http://127.0.0.1:6663/ocr/bank` 
 
+7. 收货授权委托书 `http://127.0.0.1:6663/ocr/consignee`
+
+8. 采购授权委托书 `http://127.0.0.1:6663/ocr/purchase`
+
+9. 采购及收货委托书 `http://127.0.0.1:6663/ocr/compose`
+
 # Docker
 
 * build `docker build --rm -t ocr:v1.0 .`

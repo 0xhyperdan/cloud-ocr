@@ -22,46 +22,57 @@ type InvoiceResultData struct {
 }
 
 func (generalData GeneralData) toResultData() InvoiceResultData {
-	var isCompanyAddr bool
 	var invoiceResultData InvoiceResultData
+	var text string
 	for _, v := range generalData.Response.TextDetections {
-		item := strings.ReplaceAll(v.DetectedText, "：", ":")
-		if strings.Contains(item, "电子承兑信息") {
+		if strings.Contains(v.DetectedText, "电子承兑信息") {
 			break
 		}
-		if strings.Contains(item, ":") {
-			vale := strings.Split(item, ":")[1]
-			if strings.Contains(item, "公司名称") {
-				isCompanyAddr = true
-				invoiceResultData.CompanyName = vale
-			} else if strings.Contains(item, "公司地址") {
-				invoiceResultData.CompanyAddress = vale
-			} else if strings.Contains(item, "开户银行") {
-				invoiceResultData.BankName = vale
-			} else if strings.Contains(item, "银行汇款账号") {
-				invoiceResultData.BankAccount = vale
-			} else if strings.Contains(item, "纳税人识别号") {
-				invoiceResultData.TaxCode = vale
-			} else if strings.Contains(item, "邮编") {
-				invoiceResultData.ZipCode = vale
-			} else if strings.Contains(item, "电话") {
-				invoiceResultData.Telephone = vale
-			} else if strings.Contains(item, "仓库地址") {
-				isCompanyAddr = false
-				invoiceResultData.DepotAddress = vale
-			}
-		} else if strings.Contains(item, "号") ||
-			strings.Contains(item, "单元") ||
-			strings.Contains(item, "仓库") ||
-			strings.Contains(item, "公司") ||
-			strings.Contains(item, "栋") ||
-			strings.Contains(item, "幢") ||
-			strings.Contains(item, "楼") {
-			if isCompanyAddr {
-				invoiceResultData.CompanyAddress += item
-			} else {
-				invoiceResultData.DepotAddress += item
-			}
+		text += v.DetectedText
+	}
+	fmt.Printf("开票信息识别结果: %s\n", text)
+	text = strings.ReplaceAll(text, "：", ":")
+	text = strings.ReplaceAll(text, " ", "")
+	text = strings.ReplaceAll(text, "（", "(")
+	text = strings.ReplaceAll(text, "）", ")")
+	text = strings.Replace(text, "开票信息", "", 1)
+	text = strings.Replace(text, "公司名称:", "", -1)
+	text = strings.Replace(text, "公司地址:", ",", -1)
+	text = strings.Replace(text, "开户银行:", ",", -1)
+	text = strings.Replace(text, "银行汇款账号:", ",", -1)
+	text = strings.Replace(text, "纳税人识别号:", ",", -1)
+	text = strings.Replace(text, "邮编:", ",", -1)
+	text = strings.Replace(text, "电话:", ",", -1)
+	text = strings.Replace(text, "仓库地址:", ",", -1)
+
+	infos := strings.Split(text, ",")
+	fmt.Printf("开票信息分割结果: %v\n", infos)
+	for i, v := range infos {
+		switch i {
+		case 0: // 公司名
+			invoiceResultData.CompanyName = v
+			break
+		case 1: // 公司地址
+			invoiceResultData.CompanyAddress = v
+			break
+		case 2: // 开户行
+			invoiceResultData.BankName = v
+			break
+		case 3: // 汇款账号
+			invoiceResultData.BankAccount = v
+			break
+		case 4: // 纳税人识别号
+			invoiceResultData.TaxCode = v
+			break
+		case 5: // 邮编
+			invoiceResultData.ZipCode = v
+			break
+		case 6: // 电话
+			invoiceResultData.Telephone = v
+			break
+		case 7: // 仓库地址
+			invoiceResultData.DepotAddress = v
+			break
 		}
 	}
 	return invoiceResultData

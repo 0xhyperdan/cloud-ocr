@@ -26,5 +26,8 @@ func main() {
 	http.HandleFunc("/ocr/invoice", invoice)
 	http.HandleFunc("/ocr/identity", identity)
 	http.HandleFunc("/ocr/bank", bank)
+	http.HandleFunc("/ocr/consignee", consignee)
+	http.HandleFunc("/ocr/purchase", purchase)
+	http.HandleFunc("/ocr/compose", compose)
 	log.Fatal(http.ListenAndServe(":6663", nil))
 }
