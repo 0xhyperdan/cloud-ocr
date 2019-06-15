@@ -16,7 +16,7 @@ type PurchaseResultData struct {
 	CompanyName   string `json:"companyName"`   // 公司名
 	EmployeeName  string `json:"employeeName"`  // 被授权人
 	EmployeeId    string `json:"employeeId"`    // 被授权人身份证
-	EmployeePhone string `json:"employeePhone"` // 被授权人电话
+	//EmployeePhone string `json:"employeePhone"` // 被授权人电话
 	TimeLimit     string `json:"timeLimit"`     // 期限
 }
 type PurchaseData struct {
@@ -59,7 +59,7 @@ func (purchase PurchaseData) convert() PurchaseResultData {
 	text = strings.Replace(text, "(先生/女士)为我单位采购代表,按药品相关法律法规要求,在许可范围内,负责与贵公司的采购事宜,请给予支持与合作。", "",
 		-1)
 	text = strings.Replace(text, "被授权人身份证号码:", ",", 1)
-	text = strings.Replace(text, "被授权人联系电话:", ",", -1)
+	//text = strings.Replace(text, "被授权人联系电话:", ",", -1)
 	text = strings.Replace(text, "有效期限:", ",", -1)
 	text = strings.Replace(text, "附:被授权人员身份证复印件", ",", -1)
 
@@ -77,10 +77,7 @@ func (purchase PurchaseData) convert() PurchaseResultData {
 		case 2: // 被授权采购人身份证
 			purchaseResult.EmployeeId = v
 			break
-		case 3: // 被授权采购人电话
-			purchaseResult.EmployeePhone = v
-			break
-		case 4: // 期限
+		case 3: // 期限
 			purchaseResult.TimeLimit = v
 			break
 		}

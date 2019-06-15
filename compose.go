@@ -16,7 +16,7 @@ type ComposeResultData struct {
 	CompanyName   string `json:"companyName"`   // 公司名
 	EmployeeName  string `json:"employeeName"`  // 被授权人
 	EmployeeId    string `json:"employeeId"`    // 被授权人身份证
-	EmployeePhone string `json:"employeePhone"` // 被授权人电话
+	//EmployeePhone string `json:"employeePhone"` // 被授权人电话
 	TimeLimit     string `json:"timeLimit"`     // 期限
 	Address       string `json:"address"`       // 收货地址
 }
@@ -58,7 +58,7 @@ func (compose ComposeData) convert() ComposeResultData {
 	text = strings.Replace(text, "采购及收货委托书", "", -1)
 	text = strings.Replace(text, ":现委托我公司", ",", -1)
 	text = strings.Replace(text, "(先生/女士),(身份证号码:", ",", -1)
-	text = strings.Replace(text, "联系电话:", "", -1)
+	//text = strings.Replace(text, "联系电话:", "", -1)
 	text = strings.Replace(text, ")负责我公司在贵单位的药品采购、货物接收、货款结算等相关工作。", "", -1)
 	text = strings.Replace(text, "收货委托书期限:", ",", -1)
 	text = strings.Replace(text, "特此授权。", "", -1)
@@ -79,13 +79,10 @@ func (compose ComposeData) convert() ComposeResultData {
 		case 2: // 被授权采购及收货人身份证
 			composeResult.EmployeeId = v
 			break
-		case 3: // 被授权采购及收货人电话
-			composeResult.EmployeePhone = v
-			break
-		case 4: // 期限
+		case 3: // 期限
 			composeResult.TimeLimit = v
 			break
-		case 5: // 收货地址
+		case 4: // 收货地址
 			composeResult.Address = v
 			break
 		}

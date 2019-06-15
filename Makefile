@@ -6,4 +6,4 @@ clean:
 	rm -rf $(TARGET)
 
 build:
-	go build
+	go build && go install

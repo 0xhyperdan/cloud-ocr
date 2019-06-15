@@ -16,7 +16,7 @@ type ConsigneeResultData struct {
 	CompanyName   string `json:"companyName"`   // 公司名
 	EmployeeName  string `json:"employeeName"`  // 被授权人
 	EmployeeId    string `json:"employeeId"`    // 被授权人身份证
-	EmployeePhone string `json:"employeePhone"` // 被授权人电话
+	//EmployeePhone string `json:"employeePhone"` // 被授权人电话
 	TimeLimit     string `json:"timeLimit"`     // 期限
 	Address       string `json:"address"`       // 收货地址
 }
@@ -59,7 +59,7 @@ func (consignee ConsigneeData) convert() ConsigneeResultData {
 	text = strings.Replace(text, ":兹委托我公司员工:", ",", -1)
 	text = strings.Replace(text, "(先生/女士)", "", -1)
 	text = strings.Replace(text, "(身份证号码:", "", -1)
-	text = strings.Replace(text, "联系电话:", "", -1)
+	//text = strings.Replace(text, "联系电话:", "", -1)
 	text = strings.Replace(text, ")仅负责我公司与贵单位的所有货物收货签收事宜,我公司对授托人的上述行为承担法律责任。", "", -1)
 	text = strings.Replace(text, "收货委托书期限:", ",", -1)
 	text = strings.Replace(text, "收货地址:", ",", -1)
@@ -79,13 +79,10 @@ func (consignee ConsigneeData) convert() ConsigneeResultData {
 		case 2: // 被授权人身份证
 			consigneeResult.EmployeeId = v
 			break
-		case 3: // 被授权人电话
-			consigneeResult.EmployeePhone = v
-			break
-		case 4: // 期限
+		case 3: // 期限
 			consigneeResult.TimeLimit = v
 			break
-		case 5: // 收货地址
+		case 4: // 收货地址
 			consigneeResult.Address = v
 			break
 		}
