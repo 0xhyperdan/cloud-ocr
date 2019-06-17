@@ -1,4 +1,4 @@
-VERSION := $(shell git describe --tags)
+VERSION := $(shell git describe --always)
 BUILD := $(shell git rev-parse --short HEAD)
 PROJECTNAME := $(shell basename "$(PWD)")
 
@@ -29,6 +29,7 @@ start-server: stop-server
 	@cat $(PID) | sed "/^/s/^/  \>  PID: /"
 
 stop-server:
+	@echo "stoping service"
 	@-touch $(PID)
 	@-kill `cat $(PID)` 2> /dev/null || true
 	@-rm $(PID)
