@@ -14,6 +14,8 @@ PID := /tmp/.$(PROJECTNAME).pid
 # Make is verbose in Linux. Make it silent.
 MAKEFLAGS += --silent
 
+all: build start clean
+
 ## start: Start in development mode. Auto-starts when code changes.
 start: start-server
 
@@ -62,7 +64,7 @@ go-clean:
 	@go clean
 
 .PHONY: help
-all: build start clean
+
 help: Makefile
 	@echo
 	@echo " Choose a command run in "$(PROJECTNAME)":"
