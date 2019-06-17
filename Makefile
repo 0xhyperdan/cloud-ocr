@@ -48,7 +48,7 @@ clean:
 	@-rm $(PROJECTNAME) 2> /dev/null
 	@-$(MAKE) go-clean
 
-go-compile: go-build go-install
+go-compile: go-build
 
 go-build:
 	@echo "  >  Building binary..."
