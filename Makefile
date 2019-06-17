@@ -15,15 +15,14 @@ PID := /tmp/.$(PROJECTNAME).pid
 MAKEFLAGS += --silent
 
 ## start: Start in development mode. Auto-starts when code changes.
-start:
-	@bash -c "trap 'make stop' EXIT; $(MAKE) clean compile start-server watch run='make clean compile start-server'"
+start: start-server
 
 ## stop: Stop development mode.
 stop: stop-server
 
 start-server: stop-server
 	@echo "  >  $(PROJECTNAME) is available at $(ADDR)"
-	@-$(GOBIN)/$(PROJECTNAME) 2>&1 & echo $$! > $(PID)
+	@-$(PROJECTNAME) 2>&1 & echo $$! > $(PID)
 	@cat $(PID) | sed "/^/s/^/  \>  PID: /"
 
 stop-server:
@@ -45,7 +44,7 @@ clean:
 	@-rm $(GOBIN)/$(PROJECTNAME) 2> /dev/null
 	@-$(MAKE) go-clean
 
-go-compile: go-get go-build
+go-compile: go-build
 
 go-build:
 	@echo "  >  Building binary..."
