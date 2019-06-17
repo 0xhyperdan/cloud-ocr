@@ -17,12 +17,19 @@ MAKEFLAGS += --silent
 ## start: Start in development mode. Auto-starts when code changes.
 start: start-server
 
+## restart
+restart: restart-server
+
 ## stop: Stop development mode.
 stop: stop-server
 
+## install
+install:
+	@go install
+
 start-server: stop-server
 	@echo "  >  $(PROJECTNAME) is available at $(ADDR)"
-	@-$(PROJECTNAME) 2>&1 & echo $$! > $(PID)
+	@$(PROJECTNAME) 2>&1 & echo $$! > $(PID)
 	@cat $(PID) | sed "/^/s/^/  \>  PID: /"
 
 stop-server:
@@ -41,7 +48,7 @@ compile:
 
 ## clean: Clean build files. Runs `go clean` internally.
 clean:
-	@-rm $(GOBIN)/$(PROJECTNAME) 2> /dev/null
+	@-rm $(PROJECTNAME) 2> /dev/null
 	@-$(MAKE) go-clean
 
 go-compile: go-build
@@ -50,15 +57,12 @@ go-build:
 	@echo "  >  Building binary..."
 	@go build $(LDFLAGS)
 
-go-install:
-	@go install
-
 go-clean:
 	@echo "  >  Cleaning build cache"
 	@go clean
 
 .PHONY: help
-all: help
+all: clean compile go-install start
 help: Makefile
 	@echo
 	@echo " Choose a command run in "$(PROJECTNAME)":"
