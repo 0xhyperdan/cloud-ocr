@@ -36,8 +36,8 @@ stop-server:
 
 restart-server: stop-server start-server
 
-## compile: Compile the binary.
-compile:
+## build: Compile the binary.
+build:
 	@-touch $(STDERR)
 	@-rm $(STDERR)
 	@-$(MAKE) -s go-compile 2> $(STDERR)
