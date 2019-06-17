@@ -28,8 +28,8 @@ install:
 	@go install
 
 start-server: stop-server
-	@echo "  >  $(PROJECTNAME) is available at $(ADDR)"
-	@$(PROJECTNAME) 2>&1 & echo $$! > $(PID)
+	@echo "  >  starting $(PROJECTNAME) service"
+	@./$(PROJECTNAME) 2>&1 & echo $$! > $(PID)
 	@cat $(PID) | sed "/^/s/^/  \>  PID: /"
 
 stop-server:
@@ -62,7 +62,7 @@ go-clean:
 	@go clean
 
 .PHONY: help
-all: clean compile go-install start
+all: clean compile install start
 help: Makefile
 	@echo
 	@echo " Choose a command run in "$(PROJECTNAME)":"
