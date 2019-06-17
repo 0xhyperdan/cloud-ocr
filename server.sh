@@ -1,8 +1,7 @@
 #!/bin/bash
 
-BASE_DIR=$PWD
-ARR_DIR=(${BASE_DIR//// }) # 按 '/' 分割
-SERVER=${ARR_DIR[(${#ARR_DIR[@]}-1)]} # 取路径最后一个
+SERVER=basename "$(PWD)"
+
 PID=$(ps -e | grep ${SERVER} | awk '{print $1}') # 获取进程 PID
 
 
