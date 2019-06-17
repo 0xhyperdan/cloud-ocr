@@ -14,7 +14,7 @@ PID := /tmp/.$(PROJECTNAME).pid
 # Make is verbose in Linux. Make it silent.
 MAKEFLAGS += --silent
 
-all: build start clean
+all: clean build start
 
 ## start: Start in development mode. Auto-starts when code changes.
 start: start-server
@@ -29,12 +29,14 @@ start-server: stop-server
 	@echo "  >  starting $(PROJECTNAME) service"
 	@./$(PROJECTNAME) 2>&1 & echo $$! > $(PID)
 	@cat $(PID) | sed "/^/s/^/  \>  PID: /"
+	@echo "  >  start finish"
 
 stop-server:
-	@echo "stoping service"
+	@echo "  >  stoping $(PROJECTNAME) service"
 	@-touch $(PID)
 	@-kill `cat $(PID)` 2> /dev/null || true
 	@-rm $(PID)
+	@echo "  >  stop finish"
 
 restart-server: stop-server start-server
 
@@ -42,7 +44,7 @@ restart-server: stop-server start-server
 build:
 	@-touch $(STDERR)
 	@-rm $(STDERR)
-	@-$(MAKE) -s go-compile 2> $(STDERR)
+	@-$(MAKE) -s go-build 2> $(STDERR)
 	@cat $(STDERR) | sed -e '1s/.*/\nError:\n/'  | sed 's/make\[.*/ /' | sed "/^/s/^/     /" 1>&2
 
 ## clean: Clean build files. Runs `go clean` internally.
@@ -50,11 +52,10 @@ clean:
 	@-rm $(PROJECTNAME) 2> /dev/null
 	@-$(MAKE) go-clean
 
-go-compile: go-build
-
 go-build:
 	@echo "  >  Building binary..."
 	@go build $(LDFLAGS)
+	@echo "  >  Building finish"
 
 go-install:
 	@go install
@@ -62,6 +63,7 @@ go-install:
 go-clean:
 	@echo "  >  Cleaning build cache"
 	@go clean
+	@echo "  >  Clean finish"
 
 .PHONY: help
 
