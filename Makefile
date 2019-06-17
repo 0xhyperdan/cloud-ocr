@@ -23,10 +23,6 @@ restart: restart-server
 ## stop: Stop development mode.
 stop: stop-server
 
-## install
-install:
-	@go install
-
 start-server: stop-server
 	@echo "  >  starting $(PROJECTNAME) service"
 	@./$(PROJECTNAME) 2>&1 & echo $$! > $(PID)
@@ -51,18 +47,21 @@ clean:
 	@-rm $(PROJECTNAME) 2> /dev/null
 	@-$(MAKE) go-clean
 
-go-compile: go-build
+go-compile: go-build go-install
 
 go-build:
 	@echo "  >  Building binary..."
 	@go build $(LDFLAGS)
+
+go-install:
+	@go install
 
 go-clean:
 	@echo "  >  Cleaning build cache"
 	@go clean
 
 .PHONY: help
-all: clean compile install start
+all: clean compile start
 help: Makefile
 	@echo
 	@echo " Choose a command run in "$(PROJECTNAME)":"
