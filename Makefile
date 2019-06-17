@@ -62,7 +62,7 @@ go-clean:
 	@go clean
 
 .PHONY: help
-all: clean compile start
+all: clean build start
 help: Makefile
 	@echo
 	@echo " Choose a command run in "$(PROJECTNAME)":"
