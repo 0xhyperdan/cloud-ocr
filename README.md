@@ -1,7 +1,5 @@
 # 腾讯云开放平台 OCR 识别能力库接口
 
-[![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
-
 * 迁移到腾讯云平台，识别速度更快，采用 URL 的传参数形式，同时支持上传文件的方式。
 
 # API
